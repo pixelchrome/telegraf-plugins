@@ -13,3 +13,18 @@ With this plugin you can monitor a switch with [Cloud Insights](https://cloud.ne
     * `agents = ["<switch_ip_address>"]`
     * `url = "https://<your_tenant>.c01.cloudinsights.netapp.com/rest/v1/lake/ingest/influxdb"`
     * `X-CloudInsights-ApiKey = "<your_netapp_cloud_insights_apikey"`
+
+### Requirements
+
+#### MIBs
+
+You can put the required MIBs into `/etc/telegraf/.snmp/mibs`
+
+For this example I used
+
+* `CISCO-ENTITY-FRU-CONTROL.MIB`
+* `CISCO-IF-EXTENSION-MIB`
+* `CISCO-SMI.MIB`
+* `IF-MIB`
+* `RFC1213-MIB`
+* `SNMPv2-SMI`
