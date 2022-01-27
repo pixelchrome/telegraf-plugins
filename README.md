@@ -12,9 +12,13 @@ With this plugin you can monitor a switch with [Cloud Insights](https://cloud.ne
 
     * `agents = ["<switch_ip_address>"]`
     * `url = "https://<your_tenant>.c01.cloudinsights.netapp.com/rest/v1/lake/ingest/influxdb"`
-    * `X-CloudInsights-ApiKey = "<your_netapp_cloud_insights_apikey"`
+    * `X-CloudInsights-ApiKey = "<your_netapp_cloud_insights_apikey>"`
 
 ### Requirements
+
+#### net-snmp
+
+Install snmp e.g. `apt-get install snmp`
 
 #### MIBs
 
@@ -28,3 +32,16 @@ For this example I used
 * `IF-MIB`
 * `RFC1213-MIB`
 * `SNMPv2-SMI`
+
+### Troubleshooting
+
+Use `snmpwalk` to check if it is possible to get metrics from the switch
+
+```sh
+snmpwalk -v2c -m +ALL -c public <switch_ip_address>
+```
+
+Check logfiles
+
+* `/var/log/telegraf/telegraf.log`
+* `/var/log/telegraf/telegraf-snmp-switch.json`
